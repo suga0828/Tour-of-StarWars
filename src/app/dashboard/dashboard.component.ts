@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../services/hero.service';
+// import { Hero } from '../hero';
+// import { HeroService } from '../services/hero.service';
+
+import { SwapiService } from '../services/ng4-swapi.service';
+import { Root } from '../root';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,17 +13,28 @@ import { HeroService } from '../services/hero.service';
 })
 export class DashboardComponent implements OnInit {
 
-	heroes: Hero[] = []
+  // heroes: Hero[] = []
 
-  constructor(private heroService: HeroService) { }
+	// ToDo make resource of type Root
+  resources:any = null;
+
+  constructor(
+    // private heroService: HeroService,
+    private swapiService: SwapiService) { }
 
   ngOnInit() {
-  	this.getHeroes()
+    // this.getHeroes()
+  	this.getRoot()
   }
 
-  getHeroes(): void {
-  	this.heroService.getHeroes()
-  		.subscribe( heroes => this.heroes = heroes.slice(1,5) )
+  // getHeroes(): void {
+  //   this.heroService.getHeroes()
+  //     .subscribe( heroes => this.heroes = heroes.slice(1,5) )
+  // }
+
+  getRoot(): void {
+  	this.swapiService.getRoot()
+  		.subscribe( resources => this.resources = Object.keys(resources) )
   }
 
 }
