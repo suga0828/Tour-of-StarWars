@@ -5,6 +5,11 @@
 /tmp
 /out-tsc
 
+# For deploy only
+.firebase
+.firebaserc
+firebase.json
+
 # dependencies
 /node_modules
 

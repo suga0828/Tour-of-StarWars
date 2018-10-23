@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Response, Headers, RequestOptions } from '@angular/http';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -11,11 +11,12 @@ import { MessageService } from './message.service';
 })
 
 export class SwapiService {
+
 	constructor(
 		private http: HttpClient,
 		private messageService: MessageService) { }
 
-	baseUrl = 'https://swapi.co/api/';
+	baseUrl = 'https://swapi.co/api/'
 
 	// "people": "http://swapi.co/api/people/",
 	// "planets": "http://swapi.co/api/planets/",
@@ -25,14 +26,10 @@ export class SwapiService {
 	// "starships": "http://swapi.co/api/starships/"
 
 	getRoot(wookiee: boolean = false): Observable<any> {
-		let root:string = "Root"
-		let completeUrl: string = this.baseUrl;
-		return this.getCallSingle(root, wookiee, completeUrl);
-	}
-
-	getCallSingle(type: string, wookiee: boolean, completeUrl: string){
+		let type:string = "Root"
+		let completeUrl:string = this.baseUrl
 		if (wookiee) {completeUrl += '?format=wookiee'}
-		console.log(completeUrl);
+		console.log(completeUrl)
 		return this.http.get<any>(completeUrl)
 			.pipe(
 				tap( () => this.log(`fetched ${type}`)),
@@ -40,19 +37,20 @@ export class SwapiService {
 			)
 	}
 
-	getCall(url: string){
-		let completeUrl:string = this.baseUrl+url
+	getCall(resource: string){
+		let completeUrl:string = this.baseUrl+resource
 		console.log(completeUrl);
 		return this.http.get<any>(completeUrl)
 			.pipe(
 				tap( response => {
-					this.log(`fetched ${url}`)
+					this.log(`fetched ${resource}`)
 				}),
-				catchError(this.handleError(`get${url}`, []))
+				catchError(this.handleError(`get${resource}`, []))
 			)
 	}
 
 	getPage(url: string) {
+		let completeUrl:string = url 
 		console.log(url)
 		return this.http.get<any>(url)
 			.pipe(
@@ -61,9 +59,10 @@ export class SwapiService {
 			)
 	}
 
-	getCallItem(item: string, wookiee: boolean, completeUrl: string){
-		let finalUrl = this.baseUrl + completeUrl
-		if (wookiee) {completeUrl += '?format=wookiee'}
+	// ToDo implements wookiee here
+	getCallItem(item: string, itemUrl: string){
+		let finalUrl = this.baseUrl + itemUrl
+		// if (wookiee) {completeUrl += '?format=wookiee'}
 		console.log(finalUrl);
 		return this.http.get<any>(finalUrl)
 			.pipe(
@@ -72,8 +71,7 @@ export class SwapiService {
 			)
 	}
 
-
-	/** Log a HeroService message with the MessageService */
+	/** Log a SwapiService message with the MessageService */
 	private log(message: string) {
 		this.messageService.add(`SwapiService: ${message}`);
 	}
@@ -89,6 +87,23 @@ export class SwapiService {
 			// Let the app keep running by returning an empty result.
 			return of(result as T);
 		};
+	}
+
+	//GET Items whose name/title contains search term
+	searchItems(resource:string, term: string): Observable<any[]> {
+		if ( !term.trim() ) {
+			//if not search term, return empty hero array.
+			return of([])
+		}
+		let search = `${this.baseUrl}${resource}/?search=${term}`
+		console.log(search)
+		return this.http.get<any[]>(search)	
+			.pipe(
+				// ToDo make map.
+				// map( response => response.results),
+				tap(_ => this.log(`found heroes matching "${term}`) ),
+				catchError(this.handleError<any[]>('searchHeroes', [])),
+			)
 	}
 
 }

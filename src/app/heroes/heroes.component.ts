@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// import { Hero } from '../hero';
-
-// import { HeroService } from '../services/hero.service';
-
 import { SwapiService } from '../services/ng4-swapi.service';
 import { ActivatedRoute } from '@angular/router';
 import { LocationService } from '../services/location.service';
@@ -15,39 +11,16 @@ import { LocationService } from '../services/location.service';
 })
 export class HeroesComponent implements OnInit {
 
-	// heroes:Hero[]
-
-	url:string = '';
-	detailUrl:string = '';
+	url:string = ''
 	resources:any
 	previous:string
 	next:string
 
-	// getHeroes(): void {
-	//    this.heroService.getHeroes()
-	//      .subscribe( heroes => this.heroes = heroes );
-	//  }
-
-	//  add(name: string): void {
-	// 	name = name.trim()
-	// 	if (!name) { return }
-	//    this.heroService.addHero( { name } as Hero)
-	//  		.subscribe( hero => this.heroes.push(hero) )
-	// }
-
-	// delete(hero: Hero): void {
-	// 	this.heroes = this.heroes.filter( h => h !== hero)
-	// 	this.heroService.deleteHero(hero).subscribe()
-
-	// }
-
-	constructor(// private heroService: HeroService
-    	private swapiService:SwapiService,
+	constructor(private swapiService:SwapiService,
     	private route: ActivatedRoute,
     	private location: LocationService) { }
 
 	ngOnInit() {
-		// this.getHeroes();
 		this.url = this.route.snapshot.params['resource'];
 		this.getCall(this.url);
 	}
@@ -55,10 +28,10 @@ export class HeroesComponent implements OnInit {
 	getCall(url: string) {
 		this.swapiService.getCall(url)
 			.subscribe( response => {
-					this.resources = response.results
-					this.previous = response.previous
-					this.next = response.next
-				})
+				this.resources = response.results
+				this.previous = response.previous
+				this.next = response.next
+			})
 	}
 
 	getPage(url: string) {

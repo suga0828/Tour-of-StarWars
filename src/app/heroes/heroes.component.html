@@ -1,18 +1,18 @@
-<!-- <h2>My Heroes</h2> -->
 <h2>{{url | titlecase }}</h2>
 <ul class="heroes">
-  <!-- <li *ngFor="let hero of heroes"
-    (click)="onSelect(hero)"
-    [class.selected]="hero === selectedHero"> -->
   <li *ngFor="let resource of resources"> 
       <a routerLink="{{ resource.url | getId }}">
-        <!-- <span class="badge">{{hero.id}}</span> {{hero.name}} -->
-        <h4 *ngIf="resource.name">{{ resource.name }}</h4>
-      <h4 *ngIf="resource.title">{{ resource.title }}</h4>
-      <h4>{{ resource.url | getId }}</h4>
+        <h4 *ngIf="resource.name">
+          {{ resource.name }}
+        </h4>
+        <h4 *ngIf="resource.title">
+          {{ resource.title }}
+        </h4>
+        
+        <h4>
+          {{ resource.url | getId }}
+        </h4>
       </a>
-      <!-- <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button> -->
   </li>
 </ul>
 
@@ -24,15 +24,6 @@ Next
 </button>
 
 <button (click)="goBack()">Go back</button>
-
-<!-- <div>
-  <label>Hero name:
-    <input #heroName>
-  </label>
-  <button class="add" (click)="add(heroName.value); heroName.value=''">
-    add
-  </button> 
-</div> -->
 
 <!-- Is here where hero-search work -->
 <app-hero-search></app-hero-search>

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
-
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { Hero } from '../hero';
-import { HeroService } from '../services/hero.service';
+import { SwapiService } from '../services/ng4-swapi.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-hero-search',
@@ -14,10 +13,13 @@ import { HeroService } from '../services/hero.service';
 })
 export class HeroSearchComponent implements OnInit {
 
-	heroes$: Observable<Hero[]>
+	private resource = this.route.snapshot.params['resource']
+	items$: Observable<any[]>
 	private searchTerms = new Subject<string>()
 
-	constructor(private heroService: HeroService) { }
+	constructor(
+		private swapiService: SwapiService,
+		private route: ActivatedRoute) { }
 
 	//Push a search term into the observable stream.
 	search(term: string): void {
@@ -25,15 +27,14 @@ export class HeroSearchComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.heroes$ = this.searchTerms
+		this.items$ = this.searchTerms
 			.pipe(
 				//wait 300ms after each keystroke before considering the term
 				debounceTime(300),
 				//ignore new term if same as previous term
 				distinctUntilChanged(),
 				//switch to new search observable each time the term changes
-				switchMap( (term:string) => this.heroService.searchHeroes(term) )
-
+				switchMap( (term:string) => this.swapiService.searchItems(this.resource, term) )
 			)
 	}
 
