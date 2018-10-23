@@ -2,16 +2,12 @@
 <ul class="heroes">
   <li *ngFor="let resource of resources"> 
       <a routerLink="{{ resource.url | getId }}">
-        <h4 *ngIf="resource.name">
+        <span *ngIf="resource.name">
           {{ resource.name }}
-        </h4>
-        <h4 *ngIf="resource.title">
+        </span>
+        <span *ngIf="resource.title">
           {{ resource.title }}
-        </h4>
-        
-        <h4>
-          {{ resource.url | getId }}
-        </h4>
+        </span>
       </a>
   </li>
 </ul>
