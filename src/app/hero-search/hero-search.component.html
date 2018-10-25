@@ -5,8 +5,13 @@
 
   <ul class="search-result">
     <li *ngFor="let item of items$ | async">
-    	<a routerLink="{{ resource.url | getId }}">
-        {{item.name}}
+    	<a routerLink="{{ item.url | getId }}">
+	        <span *ngIf="item.name">
+	          {{ item.name }}
+	        </span>
+	        <span *ngIf="item.title">
+	          {{ item.title }}
+	        </span>
     	</a>
     </li>
   </ul>

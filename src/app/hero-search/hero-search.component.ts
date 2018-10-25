@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
 
 import { SwapiService } from '../services/ng4-swapi.service';
 import { ActivatedRoute } from '@angular/router';
@@ -34,7 +34,8 @@ export class HeroSearchComponent implements OnInit {
 				//ignore new term if same as previous term
 				distinctUntilChanged(),
 				//switch to new search observable each time the term changes
-				switchMap( (term:string) => this.swapiService.searchItems(this.resource, term) )
+				switchMap( (term:string) => this.swapiService.searchItems(this.resource, term) ),
+				map( data => data.results)
 			)
 	}
 

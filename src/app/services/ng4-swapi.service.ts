@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 
@@ -100,7 +100,10 @@ export class SwapiService {
 		return this.http.get<any[]>(search)	
 			.pipe(
 				// ToDo make map.
-				// map( response => response.results),
+				map( (data) => {
+					console.log(data)
+					return data 
+				}),
 				tap(_ => this.log(`found heroes matching "${term}`) ),
 				catchError(this.handleError<any[]>('searchHeroes', [])),
 			)
