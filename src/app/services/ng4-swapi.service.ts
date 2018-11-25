@@ -90,16 +90,16 @@ export class SwapiService {
 	}
 
 	//GET Items whose name/title contains search term
-	searchItems(resource:string, term: string): Observable<any[]> {
+	searchItems(resource:string, term: string): Observable<any> {
 		if ( !term.trim() ) {
 			//if not search term, return empty hero array.
 			return of([])
 		}
 		let search = `${this.baseUrl}${resource}/?search=${term}`
 		console.log(search)
-		return this.http.get<any[]>(search)	
+		return this.http.get<any>(search)	
 			.pipe(
-				// ToDo make map.
+				// It's no necessary use Map here.
 				map( (data) => {
 					console.log(data)
 					return data 

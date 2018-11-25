@@ -1,8 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+
+}
 
 /* Application-wide Styles */
 h1 {
-  font-family: "Jedi", sans-serif;
+  text-align: center;
+  font-family: 'Star Jedi', sans-serif;
+  max-width: 16em;
+  color: black;
+  font-size: 7em;
+  margin: 0;
+  letter-spacing: 6px;
+  text-shadow:
+    -2px -2px 0 gold,
+     2px -2px 0 gold,
+    -2px  2px 0 gold,
+     2px  2px 0 gold;
+}
+
+br {
+  height: 0px;
 }
 
 h1,
@@ -12,8 +30,9 @@ h3 {
 }
 
 body {
-  margin: 2em;
-	background-color: black;
+  margin: 0;
+  background: url("../assets/images/stars.png") center center !important;
+  background-color: black;
 }
 
 p {
@@ -21,13 +40,22 @@ p {
   margin: 0;
 }
 
+.container {
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Fonts */
 @font-face {
-    font-family: 'Jedi';
-    src: url('../assets/fonts/StarJediHollow.eot');
-    src: url('../assets/fonts/StarJediHollow.eot?#iefix') format('embedded-opentype'),
-        url('../assets/fonts/StarJediHollow.woff2') format('woff2'),
-        url('../assets/fonts/StarJediHollow.woff') format('woff');
+    font-family: 'Star Jedi';
+    src: url('../assets/fonts/StarJedi.eot');
+    src: url('../assets/fonts/StarJedi.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/StarJedi.woff2') format('woff2'),
+        url('../assets/fonts/StarJedi.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
