@@ -7,11 +7,11 @@ import { SwapiService } from '../services/ng4-swapi.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-	selector: 'app-hero-search',
-	templateUrl: './hero-search.component.html',
-	styleUrls: ['./hero-search.component.css']
+	selector: 'app-resource-search',
+	templateUrl: './resource-search.component.html',
+	styleUrls: ['./resource-search.component.css']
 })
-export class HeroSearchComponent implements OnInit {
+export class ResourceSearchComponent implements OnInit {
 
 	private resource = this.route.snapshot.params['resource']
 	items$: Observable<any[]>
@@ -19,7 +19,8 @@ export class HeroSearchComponent implements OnInit {
 
 	constructor(
 		private swapiService: SwapiService,
-		private route: ActivatedRoute) { }
+		private route: ActivatedRoute)
+  { }
 
 	//Push a search term into the observable stream.
 	search(term: string): void {

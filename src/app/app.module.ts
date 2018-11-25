@@ -4,23 +4,23 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { ResourceComponent } from './resource/resource.component';
+import { ResourceDetailComponent } from './resource-detail/resource-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { ResourceSearchComponent } from './resource-search/resource-search.component';
 
 import { getIdPipe } from './pipes/get-id.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    ResourceComponent,
+    ResourceDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent,
+    ResourceSearchComponent,
     getIdPipe
   ],
   imports: [

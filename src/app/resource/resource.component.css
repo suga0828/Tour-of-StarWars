@@ -1,0 +1,40 @@
+/* HeroesComponent's private CSS styles */
+h2 {
+  text-align: center;
+  color: #d3b826;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 20px;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.item {
+  padding: 35px;
+  text-align: center;
+  color: black;
+  background-color: #d3b826;
+  border-radius: 2px;
+}
+
+ul {
+  margin: 0;
+}
+
+.add {
+  margin-left: 10px;
+  background-color: gray !important;
+  color: whitesmoke;
+}
+
+.grid-0 {
+  display: grid;
+}

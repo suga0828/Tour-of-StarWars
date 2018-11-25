@@ -5,20 +5,22 @@ import { ActivatedRoute } from '@angular/router';
 import { LocationService } from '../services/location.service';
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'app-resource',
+  templateUrl: './resource.component.html',
+  styleUrls: ['./resource.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class ResourceComponent implements OnInit {
 
 	url:string = ''
 	resources:any
 	previous:string
 	next:string
 
-	constructor(private swapiService:SwapiService,
-    	private route: ActivatedRoute,
-    	private location: LocationService) { }
+	constructor(
+    private swapiService:SwapiService,
+    private route: ActivatedRoute,
+    private location: LocationService)
+  { }
 
 	ngOnInit() {
 		this.url = this.route.snapshot.params['resource'];

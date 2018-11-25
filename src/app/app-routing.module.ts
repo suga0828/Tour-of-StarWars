@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeroesComponent } from './heroes/heroes.component'
+import { ResourceComponent } from './resource/resource.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { HeroDetailComponent } from './hero-detail/hero-detail.component'
+import { ResourceDetailComponent } from './resource-detail/resource-detail.component'
 
 const routes:Routes = [
 	{ path: '', redirectTo: '/StarWars', pathMatch: 'full' },
-	{ path: 'StarWars', component: DashboardComponent },
-	{ path: 'StarWars/:resource',     component: HeroesComponent },
-	{ path: 'StarWars/:resource/:id', component: HeroDetailComponent }
+	{ path: 'StarWars',               component: DashboardComponent },
+	{ path: 'StarWars/:resource',     component: ResourceComponent },
+	{ path: 'StarWars/:resource/:id', component: ResourceDetailComponent }
 ]
 
 @NgModule({

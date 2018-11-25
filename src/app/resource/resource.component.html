@@ -1,0 +1,37 @@
+<div class="container grid-0">
+
+  <h2>{{url | titlecase }}</h2>
+
+    <ul class="grid">
+      <li *ngFor="let resource of resources"
+          class="item">
+          <a routerLink="{{ resource.url | getId }}">
+            <span *ngIf="resource.name">
+              {{ resource.name }}
+            </span>
+            <span *ngIf="resource.title">
+              {{ resource.title }}
+            </span>
+          </a>
+      </li>
+    </ul>
+
+     <button class="add"
+          *ngIf="previous"
+          (click)="getPage(previous)">
+    Previous
+  </button>
+  <button class="add"
+          *ngIf="next"
+          (click)="getPage(next)">
+    Next
+  </button>
+
+
+
+  <button (click)="goBack()">Go back</button>
+
+<!-- Is here where hero-search work -->
+  <app-resource-search></app-resource-search>
+
+</div>

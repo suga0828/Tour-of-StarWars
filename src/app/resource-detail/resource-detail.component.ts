@@ -5,11 +5,11 @@ import { SwapiService } from '../services/ng4-swapi.service';
 import { LocationService } from '../services/location.service';
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  selector: 'app-resource-detail',
+  templateUrl: './resource-detail.component.html',
+  styleUrls: ['./resource-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit {
+export class ResourceDetailComponent implements OnInit {
 
   resource:string
   id:string
@@ -19,7 +19,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
     private swapiService: SwapiService,
-    private location: LocationService) { }
+    private location: LocationService)
+  { }
 
   ngOnInit() {
     this.resource = this.route.snapshot.params['resource'];

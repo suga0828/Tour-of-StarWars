@@ -1,0 +1,168 @@
+.sw-intro {
+	
+	width: 100%;
+	height: 100%;
+	color: #EBD71C;
+	background-color: #000;
+	overflow: hidden;
+	position: relative;
+}
+
+.sw-intro p.intro-text {
+	margin: 0 auto;
+  max-width: 16em;
+  font-size: 200%;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4ee;
+  opacity: 0;
+  text-align: center;
+  -webkit-animation: intro 2s ease-out;
+  -moz-animation: intro 2s ease-out;
+  -ms-animation: intro 2s ease-out;
+  -o-animation: intro 2s ease-out;
+  animation: intro 2s ease-out;
+}
+
+.sw-intro .intro-logo {
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	opacity: 0;
+	-webkit-animation: logo 5s ease-out 2.5s;
+	   -moz-animation: logo 5s ease-out 2.5s;
+		  -ms-animation: logo 5s ease-out 2.5s;
+		   -o-animation: logo 5s ease-out 2.5s;
+          animation: logo 5s ease-out 2.5s;
+}
+
+.logo {
+	max-width: 16em;
+	color: black;
+	font-size: 7em;
+	margin: 0;
+	letter-spacing: 6px;
+	text-shadow:
+		-2px -2px 0 gold,  
+		 2px -2px 0 gold,
+		-2px  2px 0 gold,
+		 2px  2px 0 gold;
+}
+	
+br {
+	height: 0px
+}
+
+
+.sw-intro .intro-content{
+	color: red;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 3;
+	width: 98%;
+	height: 50em;
+	bottom: 0;
+	font-size: 80px;
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(350px) rotateX(25deg);
+}
+
+.sw-intro .title-content {
+  position: absolute;
+  top: 100%;
+  animation: scroll 120s linear 4s forwards;
+}
+
+.sw-intro .title-content > .content-header {
+  text-align: center;
+}
+
+@-webkit-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-moz-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-ms-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-o-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@-webkit-keyframes logo {
+  0% { -webkit-transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -webkit-transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+}
+
+@-moz-keyframes logo {
+  0% { -moz-transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -moz-transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+}
+
+@-ms-keyframes logo {
+  0% { -ms-transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -ms-transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+}
+
+@-o-keyframes logo {
+  0% { -o-transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -o-transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+}
+
+@keyframes logo {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: translate(-50%,   -50%) scale(.1); opacity: 0; }
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@media screen and (max-width: 720px) {
+  .sw-intro .intro-content {
+    font-size: 35px;
+  }
+  .sw-intro .title-content {
+    animation: scroll 100s linear 4s forwards;
+  }
+}
+
+
+
+/*Se utilizaron dos tipos de letra en el rastreo:
+News Gothic bold para el cuerpo principal del
+rastreo y número de episodio y Univers light
+ultra condensed para el título de la película.
+El en texto simple, amarillo, tipo sans serif*/

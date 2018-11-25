@@ -1,0 +1,40 @@
+<!-- <div *ngIf="item.name">
+	<h2 *ngIf="item.name">{{item.name | uppercase}} Details</h2>
+	<h2 *ngIf="item.title">{{item.title | uppercase}} Details</h2>
+	<div>
+	  <label>name:
+	    <input [(ngModel)]="item.name" placeholder="name">
+	  </label>
+	</div>
+	<button (click)="save()">Save</button>
+	<button (click)="goBack()">Go back</button>
+</div> -->
+
+<div *ngIf="item.title">
+	<div class="sw-intro">
+
+		<p class="intro-text">
+			A long time ago in a galaxy far, far away ...
+		</p>
+
+		<div class="intro-logo">
+			<h1 class="logo jedi">
+				star
+			<br />
+				wars
+			</h1>
+		</div>
+		<div class="intro-content">
+			<div class="title-content">
+				<h4 class="content-header">
+					EPISODE {{ item.episode_id }}
+				<br />
+					{{ item.title }}
+				</h4>
+				<p class="content-body">
+					{{ item.opening_crawl }}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
