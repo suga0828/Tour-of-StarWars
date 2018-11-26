@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <a *ngFor="let resource of resources" routerLink="../StarWars/{{ resource }}">
-        <div class="col s12 m5 offset-m1 l3 offset-l1 card-panel hoverable z-depth-1 gold black-text center-align">
-          <span class="resource">{{ resource | titlecase }}</span>
+        <div class="col s12 m6 l4">
+          <div class="card-panel z-depth-3 gold white-text center-align resource">{{ resource | titlecase }}</div>
         </div>
       </a>
     </div>

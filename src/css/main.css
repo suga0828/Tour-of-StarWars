@@ -30,19 +30,17 @@ h3 {
 }
 
 body {
-  margin: 0;
   background: url("../assets/images/stars.png") center center !important;
   background-color: black;
+}
+
+section {
+  width: 100%;
 }
 
 p {
 	color: white;
   margin: 0;
-}
-
-.container {
-  max-width: 970px;
-  margin: 0 auto;
 }
 
 a {
